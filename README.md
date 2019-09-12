@@ -8,7 +8,7 @@
 - Delete entries 
 - Commit changes using SQLite3
 
-# Working Directory - Previewing Files
+## Working Directory - Previewing Files
 In bash, you can use `ls` command to preview files and folders in the current working directory. 
 
 ```python
@@ -17,7 +17,7 @@ ls
 
     Data_admin_101.ipynb       README.md 
 
-# Creating a Database
+## Creating a Database
 creating a database is as easy as connecting a database to non-existing database. 
 
 ```python
