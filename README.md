@@ -25,6 +25,7 @@ import sqlite3
 
 conn = sqlite3.connect('pets.db')
 c = conn.cursor()
+```
 
 ## Repreview your Files 
 Use the `ls` command again. You should see you newly created database there.
