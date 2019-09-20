@@ -61,3 +61,12 @@ c.execute('''INSERT INTO cats (name, age, breed)
         ''')
 ```
     <sqlite3.Cursor at 0x103083ab0>
+    
+## Altering a Table 
+You can update a table using this general patter: 
+`ALTER TABLE table_name ADD COLUMN column_name column_type;`
+
+## Updating data
+The `UPDATE` keyword is used to change preexisting rows within a table. 
+
+A boilerplate `UPDATE` statement looks like below:
