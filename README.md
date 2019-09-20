@@ -70,3 +70,47 @@ You can update a table using this general patter:
 The `UPDATE` keyword is used to change preexisting rows within a table. 
 
 A boilerplate `UPDATE` statement looks like below:
+```python
+c.execute('''UPDATE [table_name]
+            SET [column_name] = [new_value]
+            WHERE [column_name] = [value]
+        ''')
+ ```
+ ### Example: 
+ ```python
+ c.execute('''UPDATE cats
+            SET name = 'Hana'
+            WHERE name = 'Hannah';
+        ''')
+ ```
+ ## Deleting Data
+A boiler plate of a `DELETE` statement looks like this: 
+```python
+c.execute('''DELETE FROM [table_name] WHERE [column_name] = [value];''')
+
+c.execute('''DELETE FROM cats WHERE id = 2;''')
+```
+    <sqlite3.Cursor at 0x103083ab0>
+    
+## Saving Changes
+Changes need to be saved if you are planning to connect the database from another jupyter notebook. You have to commit changes to the master database so that other users and connections can also view the updates. 
+```python
+# preview the table 
+c.execute('''SELECT * FROM cats;''').fetchall()
+```
+    [(1, 'Hodor', 4, 'Russian Blue')]
+    
+To demonstrate these changes aren't reflected to other connections, create a second connection/cursor and try it out. 
+```python 
+#Preview the table via a second current cursor/connection 
+#Don't overwrite the previous connection: you'll lose all of your work!
+conn2 = sqlite3.connect('pets.db')
+cur2 = conn2.cursor()
+cur2.execute("""SELECT * FROM cats;""").fetchall()
+```
+    []
+    
+The second connection doesn't dipslay the data or even read the `cats` table we created. To make changes universally accessible, you must commit the changes. 
+
+`conn.commit()`
+
