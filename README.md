@@ -114,3 +114,13 @@ The second connection doesn't dipslay the data or even read the `cats` table we 
 
 `conn.commit()`
 
+Now, try to reload the second connection. The updates should populate the table.
+```python 
+#Preview the table via a reloaded second current cursor/connection 
+conn2 = sqlite3.connect('pets.db')
+cur2 = conn2.cursor()
+cur2.execute("""SELECT * FROM cats;""").fetchall()
+```
+    [(1, 'Hodor', 4, 'Russian Blue')]
+    
+Voila! You've created, edited and deleted tables and databases using SQL! 
